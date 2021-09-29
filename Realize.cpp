@@ -10,20 +10,20 @@ Vector::Vector(double a, double b, double v)
 	z = v;
 }
 
-/*Proiz::Proiz(double s)
+Cos::Cos(double s)
 {
 	p = s;
-}*/
+}
 
 void Vector::view_vector()
 {
 	cout << " V = (" << x << " " << y << " " << z << ")\n";
 }
 
-/*void Proiz::prosmotroper()
+void Cos::prosmotroper()
 {
-	cout << "Oper" << p;
-}*/
+	cout << "Cos = " << p << "\n";
+}
 
 void Vector::length_v(double rez)
 {
@@ -92,18 +92,69 @@ Vector Vector::operator*=(double value)
 
 }
 
-/*double Vector::operator *(Vector& v)
+Vector Vector::operator/(Vector& v)
 {
-	
-	return x * v.x  + y * v.y + z * v.z;
+	return Vector(x / v.x, y / v.y, z / v.z);
 
 }
 
-double Vector::operator *=(Vector& v)
+Vector Vector::operator/=(Vector& v)
 {
-	this->x *= v.x;
-	this->y *= v.y;
-	this->z *= v.z;
+	this->x /= v.x;
+	this->y /= v.y;
+	this->z /= v.z;
 	return *this;
 
-}*/
+}
+
+double Vector::operator^(Vector& v)
+{
+	return double((x * v.x + y * v.y + z * v.z)/(abs(sqrt(x * x + y * y + z * z))*(abs(sqrt(v.x * v.x + v.y * v.y+ v.z * v.z)))));
+
+}
+
+bool Vector:: operator > (Vector& v)
+{
+	if (x > v.x)
+		if (y > v.y)
+			if (z > v.z)
+				return true;
+	return false;
+}
+
+bool Vector:: operator >= (Vector& v)
+{
+	if (x >= v.x)
+		if (y >= v.y)
+			if (z >= v.z)
+				return true;
+	return false;
+}
+
+bool Vector:: operator < (Vector& v)
+{
+	if (x < v.x)
+		if (y < v.y)
+			if (z < v.z)
+				return true;
+	return false;
+}
+
+bool Vector:: operator <= (Vector& v)
+{
+	if (x <= v.x)
+		if (y <= v.y)
+			if (z <= v.z)
+				return true;
+	return false;
+}
+
+bool Vector:: operator == (Vector& v)
+{
+	if (x == v.x)
+		if (y == v.y)
+			if (z == v.z)
+				return true;
+	return false;
+}
+

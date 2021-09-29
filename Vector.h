@@ -1,5 +1,3 @@
-#pragma once
-#pragma once
 #include <iostream>
 
 using namespace std;
@@ -26,10 +24,25 @@ public:
 
 	Vector operator *=(double value);
 
+	Vector operator /(Vector& v);
+
+	Vector operator /=(Vector& v);
+
+	double operator ^(Vector& v);
+
+	bool operator >(Vector& v);
+
+	bool operator >=(Vector& v);
+
+	bool operator <(Vector& v);
+
+	bool operator <=(Vector& v);
+
+	bool operator ==(Vector& v);
+
 	void length_v(double rez = 0);
 
 	void view_vector();
-
 
 	double ret_x()
 	{
@@ -51,22 +64,21 @@ private:
 	double x, y, z;
 };
 
-/*class Proiz
+class Cos
 {
 public:
-	Proiz(double s = 1);
+	Cos(double s = 1);
 
 	void prosmotroper();
 	
 
-	double ret_p()
+	double ret_s()
 	{
 		return p;
 	}
 
 private:
 	double p;
+};
 
-
-};*/
 
