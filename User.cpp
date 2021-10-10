@@ -5,7 +5,7 @@ using namespace std;
 
 int main()
 {
-	Vector v1(5, 6, 7);
+	Vector v1(4, 8, 16);
 	Vector v2(7, 8, 9);
 	Vector v5(1, 2, 3);
 	Vector v6(2, 4, 8);
@@ -14,17 +14,19 @@ int main()
 
 	Vector sr1(6, 5, 6);
 	Vector sr2(4, 5, 6);
-
-	Vector s1(1, 2, 2);
-	Vector s2(2, 1, 3);
+	
+	Vector s1(10, 12, 15);
+	Vector s2(2, 4, 3);
 
 	Cos L;
 	
 	v1.view_vector();
 	v1.length_v();
+	cout << "Length:" << v1.length_v()<<"\n";
 
 	v2.view_vector();
 	v2.length_v();
+	cout << "Length:" << v2.length_v() << "\n";
 
 	v3 = v1 + v2;
 	v3.view_vector();
