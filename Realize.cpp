@@ -25,11 +25,11 @@ void Cos::prosmotroper()
 	cout << "Cos = " << p << "\n";
 }
 
-void Vector::length_v(double rez)
+double Vector::length_v(double rez)
 {
-	rez = abs(sqrt(x * x + y * y + z * z));
-
-	cout << " Vector length = " << rez << "\n";
+	rez = ceil(abs(sqrt(x * x + y * y + z * z)));
+	return rez;
+	//cout << " Vector length = " << rez << "\n";
 }
 
 Vector Vector::operator+(Vector& v)
@@ -109,8 +109,9 @@ Vector Vector::operator/=(Vector& v)
 
 double Vector::operator^(Vector& v)
 {
-	return double((x * v.x + y * v.y + z * v.z)/(abs(sqrt(x * x + y * y + z * z))*(abs(sqrt(v.x * v.x + v.y * v.y+ v.z * v.z)))));
-
+	double cos;
+	cos = ceil((x * v.x + y * v.y + z * v.z)/(abs(sqrt(x * x + y * y + z * z))*(abs(sqrt(v.x * v.x + v.y * v.y+ v.z * v.z)))));
+	return cos;
 }
 
 bool Vector:: operator > (Vector& v)
@@ -158,3 +159,9 @@ bool Vector:: operator == (Vector& v)
 	return false;
 }
 
+bool Cos:: operator == (Cos& v)
+{
+	if (p == v.p)
+				return true;
+	return false;
+}
