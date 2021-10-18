@@ -3,6 +3,7 @@
 
 using namespace std;
 
+
 /*..........................Class Flat_shape...........................*/
 
 Flat_shape::Flat_shape(int new_line)
@@ -14,17 +15,6 @@ int Flat_shape::get_line()
 {
 	return line;
 }
-
-void Flat_shape::draw() 
-{
-	cout << "Flat Shape";
-}
-
-void Flat_shape::input()
-{
-	
-}
-
 
 /*..........................Class Flat_shape...........................*/
 
@@ -72,6 +62,10 @@ void Triangle::draw()
 	cout << "Triangle:\n"<< "Number of lines: " << get_line() << "\n" << "Side a: " << ret_x() << "\n" << "Side b: " << ret_y() <<"\n" << "Side c: " << ret_z() << "\n";
 }
 
+void Triangle::draw2()
+{
+	cout << "Triangle:\t\t\t|\t\t| |\t\t|\n" << "Number of lines: " << get_line() << "\t\t|\t\t| |\t\t|\n" << "Side a: " << ret_x() << "\t\t\t|\t\t| |\t\t|\n" << "Side b: " << ret_y() << "\t\t\t|\t\t| |\t\t|\n" << "Side c: " << ret_z() << "\t\t\t|\t\t|--------1----->|\n";
+}
 
 /*...........................Class Triangle............................*/
 
@@ -110,7 +104,10 @@ void Right_triangle::draw()
 	cout << "Angle: " << ret_angle() << "\n";
 }
 
-
+void Right_triangle::draw2()
+{
+	cout << "Right Triangle:\t\t|\t|\n" << "Number of lines: " << get_line() << "\t|\t|\n" << "Side a: " << ret_x() << "\t\t|\t|\n" << "Side b: " << ret_y() << "\t\t|\t|\n" << "Side c: " << ret_z() << "\t\t|\t|\n" << "Angle: " << ret_angle() << "\t\t|\t|\n";
+}
 
 /*........................Class Right triangle.........................*/
 
@@ -170,6 +167,11 @@ void Acute_triangle::draw()
 	cout << "Angle 1: " << ret_angle() << "\n" << "Angle 2: " << ret_angle2() << "\n" << "Angle 3: " << ret_angle3() << "\n";
 }
 
+void Acute_triangle::draw2()
+{
+	cout << "Acute Triangle:\t\t|\t|\n" << "Number of lines: " << get_line() << "\t|\t|\n" << "Side a: " << ret_x() << "\t\t|\t|\n" << "Side b: " << ret_y() << "\t\t|\t|\n" << "Side c: " << ret_z() << "\t\t|\t|\n" << "Angle 1: " << ret_angle() << "\t\t|\t|\n" << "Angle 2: " << ret_angle2() << "\t\t|\t|\n" << "Angle 3: " << ret_angle3() << "\t\t|\t|\n";
+}
+
 /*........................Class Acute triangle.........................*/
 
 
@@ -206,6 +208,12 @@ void Obtuse_triangle::draw()
 	cout << "\nObtuse ";
 	Triangle::draw();
 	cout << "Angle: " << ret_angle() << "\n";
+}
+
+void Obtuse_triangle::draw2()
+{
+	
+	cout << "Obtuse Triangle:\n" << "Number of lines: " << get_line() << "\n" << "Side a: " << ret_x() << "\n" << "Side b: " << ret_y() << "\n" << "Side c: " << ret_z() << "\n" << "Angle 1: " << ret_angle() << "\n";
 }
 
 /*........................Class Obtuse triangle........................*/
@@ -245,7 +253,17 @@ void Square::draw()
 	cout << "\nSquare:" << "\nNumber of lines: " << get_line() << "\n" << "Side a: " << ret_x() << "\n" << "Angle: " << ret_angle() << "\n";
 }
 
+void Square::draw2()
+{
+	cout << "  |\t\t\t\t|\t\t| |<-----4----Square:" << "\n  |\t\t\t\t|\t\t| |\t     Number of lines: " << get_line() << "\n" << "  |\t\t\t\t|\t\t| |\t     Side a: " << ret_x() << "\n" << "  |\t\t\t\t|\t\t| |\t     Angle: " << ret_angle() << "\n";
+}
+
+
+
 /*.............................Class Square............................*/
+
+
+/*............................Class Rectangle..........................*/
 
 Rectangle::Rectangle(int new_line, int new_angle, int a, int b) : Square(new_line, new_angle, a), Flat_shape(new_line)
 {
@@ -263,8 +281,10 @@ void Rectangle::input()
 	cout << "Rectangle\n";
 	cout << "Side a: ";
 	cin >> x;
-	cout << "Side b: ";
-	cin >> y;
+	do {
+		cout << "Side b: ";
+		cin >> y;
+	} while (y==x);
 	angle = 90;
 	line = 4;
 	system("cls");
@@ -272,6 +292,49 @@ void Rectangle::input()
 
 void Rectangle::draw()
 {
-
 	cout << "\nRectangle:" << "\nNumber of lines: " << get_line() << "\n" << "Side a: " << ret_x() << "\n" << "Side b: " << ret_y() << "\n" << "Angle: " << ret_angle() << "\n";
 }
+
+void Rectangle::draw2()
+{
+	cout << "  |---------1---------->|\t|\t\t| |\t     Rectangle:" << "\n  |\t\t\t|\t|\t\t| |\t     Number of lines: " << get_line() << "\n" << "  |\t\t\t|\t|\t\t| |\t     Side a: " << ret_x() << "\n" << "  |\t\t\t|\t|\t\t| |\t     Side b: " << ret_y() << "\n" << "  |\t\t\t|\t|\t\t| |\t     Angle: " << ret_angle() << "\n";
+}
+
+/*............................Class Rectangle..........................*/
+
+
+/*.............................Class Rhombus...........................*/
+
+Rhombus::Rhombus(int new_line, int new_angle, int new_angle2, int a) : Square(new_line, new_angle, a), Flat_shape(new_line)
+{
+	angle2 = new_angle2;
+}
+
+int Rhombus::ret_angle2() 
+{
+		return angle2;
+}
+
+void Rhombus::input()
+{
+	cout << "Data entry for a ";
+	cout << "Rhombus\n";
+	cout << "Side a: ";
+	cin >> x;
+	angle = 60;
+	angle2 = 120;
+	line = 4;
+	system("cls");
+}
+
+void Rhombus::draw()
+{
+	cout << "\nRhombus:" << "\nNumber of lines: " << get_line() << "\n" << "Side a: " << ret_x() << "\n" << "Angle 1: " << ret_angle() << "\n" << "Angle 2: " << ret_angle2() << "\n";
+}
+
+void Rhombus::draw2()
+{
+	cout << "  |\t\t\t|\t|\t     Rhombus:" << "\n  |\t\t\t|\t|\t     Number of lines: " << get_line() << "\n" << "  |\t\t\t|\t|\t     Side a: " << ret_x() << "\n" << "  |\t\t\t|\t|\t     Angle 1: " << ret_angle() << "\n" << "  |\t\t\t|\t|\t     Angle 2: " << ret_angle2() << "\n";
+}
+
+/*.............................Class Rhombus...........................*/
