@@ -18,9 +18,9 @@ int main()
 
 	Rectangle GPLN;
 
-	Rhombus PLKM;
+	Parallelogram PLKM;
 
-	
+
 
 	ABC.input();
 
@@ -52,39 +52,39 @@ int main()
 	GPLN.draw();
 
 	PLKM.draw();
+}
 
-/*
-cout << "\t\tFlat_shape\n";
+/*cout << "\t\tFlat_shape\n";
 cout << "\t\t    |\n" <<
 		"\t\t    |\n" <<
 		"\t\t    |\n" <<
 		"\t\t    |\n" <<
 		"\t\t    |\n" <<
 		"  ----------------------------------------------------------------------------\n" <<
-		"  |\t\t\t\t|\t\t|\t\t|\n" <<
-		"  |\t\t\t\t|\t\t|\t\t|\n" <<
-		"  |\t\t\t\t|\t\t|\t\t|\n" <<
-		"  |\t\t\t\t|\t\t|\t\t|\n" <<
-		"  |\t\t\t\t|\t\t|\t\t|\n" <<
-		"  |\t\t\t\t|\t\t|\t\t|\n"; ABCD.draw2();
+		"  |\t\t\t\t\t\t\t\t|\n" <<
+		"  |\t\t\t\t\t\t\t\t|\n" <<
+		"  |\t\t\t\t\t\t\t\t|\n" <<
+		"  |\t\t\t\t\t\t\t\t|\n" <<
+		"  |\t\t\t\t\t\t\t\t|\n" <<
+		"  |\t\t\t\t\t\t\t\t|\n"; ABCD.draw2();
 ABC.draw2(); GPLN.draw2(); PLKM.draw2();
-cout << "  |\t\t\t|\t|\n" <<
-	    "  |\t\t\t|\t|\n" <<
-	    "  |\t\t\t|\t|\n" <<
-	    "  |\t\t\t|\t|\n" <<
-	    "  |<--------2------------------ |\n" <<  
-	    "  |\t\t\t|\t|\n" ; GPA.draw2(); 
-  cout<<"  |---------3---------->|\t|\n" 
-	    "  |\t\t\t|\t|\n" <<
-	    "  |\t\t\t|\t|\n" <<
-	    "  |\t\t\t|\t|\n" <<
-	    "  |\t\t\t|\t|\n" <<
-	    "  |<-------1+2----------|<------|\n"; PPA.draw2();
-cout<<  "  |\t\t\t|\t|\n" <<
-        "  |\t\t\t|\t|\n" <<
-	    "  |\t\t\t|\t|\n" <<
-	    "  |\t\t\t|\t|\n" <<
-	    "  |\t\t\t|\t|\n" <<
-	    "  |<-------1+2+3--------|<------|\n"; GLK.draw2();
-*/		
-}
+cout << "  |\t\t\t\t\n" <<
+	    "  |\t\t\t\t\n" <<
+	    "  |\t\t\t\t\n" <<
+	    "  |\t\t\t\t\n" <<
+	    "  |\n" <<  
+	    "  |\t\t\t\t\n" ; GPA.draw2(); 
+  cout<<"  |\t|\n" 
+	    "  |\t\t\t\t\n" <<
+	    "  |\t\t\t\t\n" <<
+	    "  |\t\t\t\t\n" <<
+	    "  |\t\t\t\t\n" <<
+	    "  |\n"; PPA.draw2();
+cout<<  "  |\t\t\t\t\n" <<
+        "  |\t\t\t\t\n" <<
+	    "  |\t\t\t\t\n" <<
+	    "  |\t\t\t\t\n" <<
+	    "  |\t\t\t\t\n" <<
+	    "  |\n"; GLK.draw2();
+		
+}*/
