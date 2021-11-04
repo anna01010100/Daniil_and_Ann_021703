@@ -64,7 +64,7 @@ void Triangle::draw()
 
 void Triangle::draw2()
 {
-	cout << "Triangle:\t\t\t|\t\t| |\t\t|\n" << "Number of lines: " << get_line() << "\t\t|\t\t| |\t\t|\n" << "Side a: " << ret_x() << "\t\t\t|\t\t| |\t\t|\n" << "Side b: " << ret_y() << "\t\t\t|\t\t| |\t\t|\n" << "Side c: " << ret_z() << "\t\t\t|\t\t|--------1----->|\n";
+	cout << "Triangle:\t\t\t\t\t| |\t\t\n" << "Number of lines: " << get_line() << "\t\t\t\t| |\t\t\n" << "Side a: " << ret_x() << "\t\t\t\t\t| |\t\t\n" << "Side b: " << ret_y() << "\t\t\t\t\t| |\t\t\n" << "Side c: " << ret_z() << "\t\t\t\t\t\n";
 }
 
 /*...........................Class Triangle............................*/
@@ -72,7 +72,7 @@ void Triangle::draw2()
 
 /*........................Class Right triangle.........................*/
 
-Right_triangle::Right_triangle(int new_angle, int new_line, int a, int b, int c) : Triangle(new_line, a, b, c), Flat_shape(new_line)
+Right_triangle::Right_triangle(int new_angle, int new_line, int a, int b, int c) : Triangle(new_line, a, b, c)
 {
 	angle = new_angle;
 }
@@ -114,7 +114,7 @@ void Right_triangle::draw2()
 
 /*........................Class Acute triangle.........................*/
 
-Acute_triangle::Acute_triangle(int new_angle, int new_line, int a, int b, int c, int new_angle2, int new_angle3) : Right_triangle(new_angle, new_line, a, b, c), Triangle(new_line, a, b, c), Flat_shape(new_line)
+Acute_triangle::Acute_triangle(int new_angle, int new_line, int a, int b, int c, int new_angle2, int new_angle3) : Right_triangle(new_angle, new_line, a, b, c)
 {
 	angle2 = new_angle2;
 	angle3 = new_angle3;
@@ -178,7 +178,7 @@ void Acute_triangle::draw2()
 /*........................Class Obtuse triangle........................*/
 
 
-Obtuse_triangle::Obtuse_triangle(int new_angle, int new_line, int a, int b, int c) : Right_triangle(new_angle, new_line, a, b, c), Triangle(new_line, a, b, c), Flat_shape(new_line)
+Obtuse_triangle::Obtuse_triangle(int new_angle, int new_line, int a, int b, int c) : Right_triangle(new_angle, new_line, a, b, c)
 {
 	
 }
@@ -223,18 +223,18 @@ void Obtuse_triangle::draw2()
 
 Square::Square(int new_line, int new_angle, int a) : Flat_shape(new_line)
 {
-	x = a;
-	angle = new_angle;
+	x1 = a;
+	angle1 = new_angle;
 }
 
-int Square::ret_x()
+int Square::ret_x1()
 {
-	return x;
+	return x1;
 }
 
-int Square::ret_angle()
+int Square::ret_angle1()
 {
-	return angle;
+	return angle1;
 }
 
 void Square::input()
@@ -242,20 +242,20 @@ void Square::input()
 	cout << "Data entry for a ";
 	cout << "Square\n";
 	cout << "Side a: ";
-	cin >> x;
-	angle = 90;
+	cin >> x1;
+	angle1 = 90;
 	line = 4;
 	system("cls");
 }
 
 void Square::draw()
 {
-	cout << "\nSquare:" << "\nNumber of lines: " << get_line() << "\n" << "Side a: " << ret_x() << "\n" << "Angle: " << ret_angle() << "\n";
+	cout << "\nSquare:" << "\nNumber of lines: " << get_line() << "\n" << "Side a: " << ret_x1() << "\n" << "Angle: " << ret_angle1() << "\n";
 }
 
 void Square::draw2()
 {
-	cout << "  |\t\t\t\t|\t\t| |<-----4----Square:" << "\n  |\t\t\t\t|\t\t| |\t     Number of lines: " << get_line() << "\n" << "  |\t\t\t\t|\t\t| |\t     Side a: " << ret_x() << "\n" << "  |\t\t\t\t|\t\t| |\t     Angle: " << ret_angle() << "\n";
+	cout << "  |\t\t\t\t|\t\t| |<-----4----Square:" << "\n  |\t\t\t\t|\t\t| |\t     Number of lines: " << get_line() << "\n" << "  |\t\t\t\t|\t\t| |\t     Side a: " << ret_x1() << "\n" << "  |\t\t\t\t|\t\t| |\t     Angle: " << ret_angle1() << "\n";
 }
 
 
@@ -265,7 +265,7 @@ void Square::draw2()
 
 /*............................Class Rectangle..........................*/
 
-Rectangle::Rectangle(int new_line, int new_angle, int a, int b) : Square(new_line, new_angle, a), Flat_shape(new_line)
+Rectangle::Rectangle(int new_line, int new_angle, int a, int b) : Flat_shape(new_line)
 {
 	y = b;
 };
@@ -273,6 +273,16 @@ Rectangle::Rectangle(int new_line, int new_angle, int a, int b) : Square(new_lin
 int Rectangle::ret_y()
 {
 	return y;
+}
+
+int Rectangle::ret_x()
+{
+	return x;
+}
+
+int Rectangle::ret_angle()
+{
+	return angle;
 }
 
 void Rectangle::input()
@@ -297,7 +307,7 @@ void Rectangle::draw()
 
 void Rectangle::draw2()
 {
-	cout << "  |---------1---------->|\t|\t\t| |\t     Rectangle:" << "\n  |\t\t\t|\t|\t\t| |\t     Number of lines: " << get_line() << "\n" << "  |\t\t\t|\t|\t\t| |\t     Side a: " << ret_x() << "\n" << "  |\t\t\t|\t|\t\t| |\t     Side b: " << ret_y() << "\n" << "  |\t\t\t|\t|\t\t| |\t     Angle: " << ret_angle() << "\n";
+	cout << "  |---------1---------->\t|\t\t| |\t     Rectangle:" << "\n  |\t\t\t|\t|\t\t| |\t     Number of lines: " << get_line() << "\n" << "  |\t\t\t|\t|\t\t| |\t     Side a: " << ret_x() << "\n" << "  |\t\t\t|\t|\t\t| |\t     Side b: " << ret_y() << "\n" << "  |\t\t\t|\t|\t\t| |\t     Angle: " << ret_angle() << "\n";
 }
 
 /*............................Class Rectangle..........................*/
@@ -305,36 +315,40 @@ void Rectangle::draw2()
 
 /*.............................Class Rhombus...........................*/
 
-Rhombus::Rhombus(int new_line, int new_angle, int new_angle2, int a) : Square(new_line, new_angle, a), Flat_shape(new_line)
+Parallelogram::Parallelogram(int new_line, int new_angle, int new_angle2, int a, int b) : Square(new_line, new_angle, a), Rectangle(new_line, new_angle, a, b)
 {
 	angle2 = new_angle2;
 }
 
-int Rhombus::ret_angle2() 
+int Parallelogram::ret_angle2()
 {
 		return angle2;
 }
 
-void Rhombus::input()
+void Parallelogram::input()
 {
+	
 	cout << "Data entry for a ";
-	cout << "Rhombus\n";
+	cout << "Parallelogram\n";
 	cout << "Side a: ";
 	cin >> x;
-	angle = 60;
-	angle2 = 120;
+	cout << "Side b: ";
+	cin >> y;
+	angle = 30;
+	angle2 = 60;
 	line = 4;
 	system("cls");
+	
 }
 
-void Rhombus::draw()
+void Parallelogram::draw()
 {
-	cout << "\nRhombus:" << "\nNumber of lines: " << get_line() << "\n" << "Side a: " << ret_x() << "\n" << "Angle 1: " << ret_angle() << "\n" << "Angle 2: " << ret_angle2() << "\n";
+	cout << "\nParallelogram:" << "\nNumber of lines: " << get_line() << "\n" << "Side a: " << ret_x() << "\n" << "Side b: " << ret_y() << "\n" << "Angle 1: " << ret_angle() << "\n" << "Angle 2: " << ret_angle2() << "\n";
 }
 
-void Rhombus::draw2()
+void Parallelogram::draw2()
 {
-	cout << "  |\t\t\t|\t|\t     Rhombus:" << "\n  |\t\t\t|\t|\t     Number of lines: " << get_line() << "\n" << "  |\t\t\t|\t|\t     Side a: " << ret_x() << "\n" << "  |\t\t\t|\t|\t     Angle 1: " << ret_angle() << "\n" << "  |\t\t\t|\t|\t     Angle 2: " << ret_angle2() << "\n";
+	cout << "  |\t\t\t|\t|\t     Parallelogram:" << "\n  |\t\t\t|\t|\t     Number of lines: " << get_line() << "\n" << "  |\t\t\t|\t|\t     Side a: " << ret_x() << "\n" << "  |\t\t\t|\t|\t     Angle 1: " << ret_angle() << "\n" << "  |\t\t\t|\t|\t     Angle 2: " << ret_angle2() << "\n";
 }
 
 /*.............................Class Rhombus...........................*/
