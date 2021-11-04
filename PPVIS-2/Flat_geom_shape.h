@@ -23,7 +23,7 @@ protected:
 
 /*...........................Class Triangle............................*/
 
-class Triangle : virtual private Flat_shape
+class Triangle : public Flat_shape
 {
 public:
 	Triangle(int new_line = 0, int a = 0, int b = 0, int c = 0);
@@ -49,7 +49,7 @@ protected:
 
 /*........................Class Right triangle.........................*/
 
-class Right_triangle : virtual public Triangle, virtual private Flat_shape
+class Right_triangle :  public Triangle
 {
 public:
 	Right_triangle(int new_angle = 0, int new_line = 0, int a = 0, int b = 0, int c = 0);
@@ -71,7 +71,7 @@ protected:
 
 /*........................Class Acute triangle.........................*/
 
-class Acute_triangle : public Right_triangle, virtual public Triangle, virtual public Flat_shape
+class Acute_triangle : public Right_triangle
 {
 public:
 	Acute_triangle(int new_angle = 0, int new_line = 0, int a = 0, int b = 0, int c = 0, int new_angle2 = 0, int new_angle3 = 0);
@@ -95,7 +95,7 @@ private:
 
 /*........................Class Obtuse triangle........................*/
 
-class Obtuse_triangle : public Right_triangle, virtual public Triangle, virtual public Flat_shape
+class Obtuse_triangle : private Right_triangle
 {
 public:
 	Obtuse_triangle(int new_angle = 0, int new_line = 0, int a = 0, int b = 0, int c = 0);
@@ -119,9 +119,9 @@ namespace Class_Square {
 	public:
 		Square(int new_line = 0, int new_angle = 0, int a = 0);
 
-		int ret_x();
+		int ret_x1();
 
-		int ret_angle();
+		int ret_angle1();
 
 		void input();
 
@@ -130,7 +130,7 @@ namespace Class_Square {
 		void draw2();
 
 	protected:
-		int x, angle;
+		int x1, angle1;
 	};
 
 }
@@ -142,12 +142,16 @@ namespace Class_Square {
 
 using Class_Square::Square;
 
-class Rectangle : public Square, virtual public Flat_shape
+class Rectangle : virtual protected Flat_shape
 {
 public:
 	Rectangle(int new_line = 0, int new_angle = 0, int a = 0, int b = 0);
 
 	int ret_y();
+
+	int ret_x();
+
+	int ret_angle();
 
 	void input();
 
@@ -155,19 +159,19 @@ public:
 
 	void draw2();
 
-private:
-	int y;
+protected:
+	int y,x,angle;
 };
 
 /*............................Class Rectangle..........................*/
 
 
-/*.............................Class Rhombus...........................*/
+/*.............................Class Parallelogram...........................*/
 
-class Rhombus : virtual public Square, virtual public Flat_shape
+class Parallelogram : public Square, public Rectangle
 {
 public:
-	Rhombus(int new_line = 0, int new_angle = 0, int new_angle2 = 0 , int a = 0);
+	Parallelogram(int new_line = 0, int new_angle = 0, int new_angle2 = 0 , int a = 0, int b = 0);
 
 	int ret_angle2();
 
@@ -181,4 +185,4 @@ protected:
 	int angle2;
 };
 
-/*.............................Class Rhombus...........................*/
+/*.............................Class Parallelogram...........................*/
