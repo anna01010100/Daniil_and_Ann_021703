@@ -7,6 +7,8 @@ public:
 	Flat_shape(int new_line = 0);
     
 	int get_line();
+
+	void set_line(int nline);
 	
 	virtual void input() = 0;
 
@@ -14,7 +16,7 @@ public:
 
 	virtual void draw2() = 0;
 
-protected:
+private:
 	int line;
 };
 
@@ -34,13 +36,19 @@ public:
 
 	int ret_z();
 
+	void set_x(int nx);
+
+	void set_y(int ny);
+
+	void set_z(int nz);
+
 	void input();
 
 	void draw();
 
 	void draw2();
 
-protected:
+private:
 	int x, y, z;
 };
 
@@ -56,13 +64,15 @@ public:
 
 	int ret_angle();
 
+	void set_angle(int nangle);
+
 	void input();
 
 	void draw();
 
 	void draw2();
 
-protected:
+private:
 	 int angle;
 };
 
@@ -79,6 +89,10 @@ public:
 	int ret_angle2();
 
 	int ret_angle3();
+
+	void set_angle2(int nangle2);
+
+	void set_angle3(int nangle3);
 
 	void input();
 
@@ -123,14 +137,24 @@ namespace Class_Square {
 
 		int ret_angle1();
 
+		int ret_S();
+
+		void set_x1(int nx1);
+
+		void set_angle1(int nangle1);
+
+		void set_S(int nS);
+
+		virtual int area(int a, int b);
+
 		void input();
 
 		void draw();
 
 		void draw2();
 
-	protected:
-		int x1, angle1;
+	private:
+		int x1, angle1, S;
 	};
 
 }
@@ -153,14 +177,20 @@ public:
 
 	int ret_angle();
 
+	void set_x(int nangle);
+
+	void set_y(int nangle);
+
+	void set_angle(int nangle);
+
 	void input();
 
 	void draw();
 
 	void draw2();
 
-protected:
-	int y,x,angle;
+private:
+	int x,y,angle;
 };
 
 /*............................Class Rectangle..........................*/
@@ -171,9 +201,9 @@ protected:
 class Parallelogram : public Square, public Rectangle
 {
 public:
-	Parallelogram(int new_line = 0, int new_angle = 0, int new_angle2 = 0 , int a = 0, int b = 0);
+	Parallelogram(int new_line = 0, int new_angle = 0, int a = 0, int b = 0);
 
-	int ret_angle2();
+	virtual int area(int a, int b) override;
 
 	void input();
 
@@ -181,8 +211,6 @@ public:
 
 	void draw2();
 
-protected:
-	int angle2;
 };
 
 /*.............................Class Parallelogram...........................*/
